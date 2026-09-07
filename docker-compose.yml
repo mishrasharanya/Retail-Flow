@@ -1,0 +1,18 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: retailflow_postgres
+
+    environment:
+      POSTGRES_USER: retailflow
+      POSTGRES_PASSWORD: retailflow_password
+      POSTGRES_DB: retailflow
+
+    ports:
+      - "5432:5432"
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:

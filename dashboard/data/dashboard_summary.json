@@ -1,0 +1,11 @@
+[
+  {
+    "delivered_orders":96478,
+    "customers":93358,
+    "revenue":15422461.7699999996,
+    "average_order_value":159.85,
+    "average_review_score":4.16,
+    "late_delivery_rate":0.0811,
+    "average_delivery_days":12.56
+  }
+]

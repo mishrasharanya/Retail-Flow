@@ -1,0 +1,144 @@
+:root {
+  --ink: #17212b;
+  --muted: #687583;
+  --paper: #f5f2ea;
+  --panel: #fffdf8;
+  --line: #ded9ce;
+  --teal: #087f72;
+  --teal-light: #d9eee9;
+  --coral: #e66a4e;
+  --gold: #e7ab3b;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 8% 2%, rgba(8, 127, 114, 0.10), transparent 28rem),
+    var(--paper);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.hero {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 3.5rem 2.5rem 2.25rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.eyebrow, .section-label {
+  margin: 0 0 .5rem;
+  color: var(--teal);
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .16em;
+}
+
+h1 { margin: 0; font-family: Georgia, serif; font-size: clamp(3rem, 7vw, 6rem); line-height: .9; }
+h1 span { color: var(--coral); }
+.subtitle { max-width: 42rem; margin: 1.25rem 0 0; color: var(--muted); font-size: 1.1rem; }
+
+.pipeline-status {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  min-width: 18rem;
+  padding: 1rem 1.2rem;
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  background: rgba(255, 253, 248, .8);
+}
+.pipeline-status strong, .pipeline-status small { display: block; }
+.pipeline-status small { margin-top: .2rem; color: var(--muted); }
+.status-dot { width: .75rem; height: .75rem; border-radius: 50%; background: var(--teal); box-shadow: 0 0 0 .35rem var(--teal-light); }
+
+main { max-width: 1440px; margin: 0 auto; padding: 2rem 2.5rem 4rem; }
+.kpi-grid { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: .8rem; margin-bottom: 1.5rem; }
+.kpi {
+  min-height: 8.5rem;
+  padding: 1.15rem;
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  background: var(--panel);
+  box-shadow: 0 8px 30px rgba(23, 33, 43, .04);
+}
+.kpi-label { color: var(--muted); font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+.kpi-value { display: block; margin-top: 1.6rem; font-family: Georgia, serif; font-size: clamp(1.35rem, 2vw, 2.15rem); white-space: nowrap; }
+
+.insight-section {
+  display: grid;
+  grid-template-columns: minmax(15rem, .8fr) 2.2fr;
+  gap: 1rem;
+  margin: 0 0 1.5rem;
+}
+.insight-intro, .insight-card {
+  padding: 1.35rem;
+  border-radius: 1rem;
+  border: 1px solid var(--line);
+}
+.insight-intro { color: #f8f4ea; background: var(--ink); }
+.insight-intro .section-label { color: #78d0c3; }
+.insight-intro p:last-child { margin: 1rem 0 0; color: #bac3ca; font-size: .86rem; line-height: 1.55; }
+.insight-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: .8rem; }
+.insight-card { background: var(--panel); }
+.insight-number { display: block; margin-bottom: .55rem; color: var(--coral); font-family: Georgia, serif; font-size: 1.7rem; }
+.insight-card h3 { margin: 0 0 .4rem; font-size: .92rem; }
+.insight-card p { margin: 0; color: var(--muted); font-size: .8rem; line-height: 1.5; }
+
+.dashboard-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.panel {
+  min-width: 0;
+  padding: 1.5rem;
+  border: 1px solid var(--line);
+  border-radius: 1.1rem;
+  background: var(--panel);
+  box-shadow: 0 12px 36px rgba(23, 33, 43, .04);
+}
+.panel-wide { grid-column: 1 / -1; }
+.panel-heading { display: flex; justify-content: space-between; gap: 1rem; align-items: flex-start; margin-bottom: 1.25rem; }
+h2 { margin: 0; font-family: Georgia, serif; font-size: 1.65rem; }
+.panel-note { margin: 0; color: var(--muted); font-size: .8rem; }
+.chart-explainer { margin: 1rem 0 0; padding-top: .85rem; color: var(--muted); font-size: .77rem; line-height: 1.5; border-top: 1px solid #eee9df; }
+.chart { min-height: 330px; overflow: hidden; }
+.chart svg { display: block; width: 100%; height: 330px; }
+.axis-label { fill: var(--muted); font-size: 11px; }
+.grid-line { stroke: #e9e4da; stroke-width: 1; }
+.revenue-line { fill: none; stroke: var(--teal); stroke-width: 3; stroke-linejoin: round; stroke-linecap: round; }
+.revenue-area { fill: url(#areaGradient); }
+.data-point { fill: var(--panel); stroke: var(--coral); stroke-width: 2; }
+
+.bar-row { display: grid; grid-template-columns: minmax(8rem, 1.2fr) 2fr auto; gap: .8rem; align-items: center; margin: .72rem 0; font-size: .8rem; }
+.bar-label { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.bar-track { height: .55rem; overflow: hidden; border-radius: 2rem; background: #ece7dc; }
+.bar-fill { height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--teal), #39a897); }
+.bar-value { min-width: 5.5rem; text-align: right; font-variant-numeric: tabular-nums; }
+
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: .82rem; }
+th { padding: .75rem .6rem; color: var(--muted); font-size: .68rem; text-align: left; letter-spacing: .06em; text-transform: uppercase; border-bottom: 1px solid var(--line); }
+td { padding: .72rem .6rem; border-bottom: 1px solid #eee9df; font-variant-numeric: tabular-nums; }
+tbody tr:last-child td { border-bottom: 0; }
+td:not(:first-child), th:not(:first-child) { text-align: right; }
+.seller-id { max-width: 11rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+
+footer { display: flex; justify-content: space-between; max-width: 1440px; margin: 0 auto; padding: 1.5rem 2.5rem 2.5rem; color: var(--muted); font-size: .78rem; border-top: 1px solid var(--line); }
+.error-message { position: fixed; inset: auto 1rem 1rem; padding: 1rem; color: #7b231d; background: #fbe4df; border: 1px solid #e9a598; border-radius: .7rem; }
+
+@media (max-width: 1100px) { .kpi-grid { grid-template-columns: repeat(4, 1fr); } }
+@media (max-width: 760px) {
+  .hero { align-items: flex-start; flex-direction: column; padding: 2.5rem 1.2rem 1.5rem; }
+  .pipeline-status { width: 100%; }
+  main { padding: 1.2rem; }
+  .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+  .insight-section { grid-template-columns: 1fr; }
+  .insight-grid { grid-template-columns: 1fr; }
+  .dashboard-grid { grid-template-columns: 1fr; }
+  .panel-wide { grid-column: auto; }
+  footer { flex-direction: column; gap: .4rem; padding-inline: 1.2rem; }
+}

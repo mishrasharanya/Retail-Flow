@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="RetailFlow Olist analytics dashboard" />
+    <title>RetailFlow Analytics</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div>
+        <p class="eyebrow">OLIST COMMERCE INTELLIGENCE</p>
+        <h1>Retail<span>Flow</span></h1>
+        <p class="subtitle">A trusted view of orders, revenue, delivery, and customer experience.</p>
+      </div>
+      <div class="pipeline-status">
+        <span class="status-dot"></span>
+        <div>
+          <strong>Analytics layer ready</strong>
+          <small id="generated-at">Loading export metadata…</small>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="kpi-grid" id="kpi-grid" aria-label="Key performance indicators"></section>
+
+      <section class="insight-section" aria-labelledby="insight-title">
+        <div class="insight-intro">
+          <p class="section-label">WHAT THE DATA SAYS</p>
+          <h2 id="insight-title">Four signals worth noticing</h2>
+          <p>These observations are calculated from the same exported analytics data as the charts, so they refresh with the pipeline.</p>
+        </div>
+        <div class="insight-grid" id="insight-grid"></div>
+      </section>
+
+      <section class="dashboard-grid">
+        <article class="panel panel-wide">
+          <div class="panel-heading">
+            <div>
+              <p class="section-label">TREND</p>
+              <h2>Monthly delivered revenue</h2>
+            </div>
+            <p class="panel-note">Revenue recognized from delivered orders</p>
+          </div>
+          <div id="monthly-chart" class="chart" role="img" aria-label="Monthly revenue line chart"></div>
+          <p class="chart-explainer"><strong>How to read it:</strong> each point is one month of delivered orders. Height represents total customer payment value, so changes reflect both order volume and order size.</p>
+        </article>
+
+        <article class="panel">
+          <div class="panel-heading">
+            <div>
+              <p class="section-label">PRODUCT MIX</p>
+              <h2>Top categories</h2>
+            </div>
+          </div>
+          <div id="category-chart" class="bar-list"></div>
+          <p class="chart-explainer"><strong>How to read it:</strong> bars rank categories by product price value across order items; freight is excluded.</p>
+        </article>
+
+        <article class="panel">
+          <div class="panel-heading">
+            <div>
+              <p class="section-label">GEOGRAPHY</p>
+              <h2>State performance</h2>
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>State</th><th>Orders</th><th>Revenue</th><th>Late</th></tr></thead>
+              <tbody id="state-table"></tbody>
+            </table>
+          </div>
+          <p class="chart-explainer"><strong>How to read it:</strong> state metrics include delivered orders and use the customer state recorded for each order.</p>
+        </article>
+
+        <article class="panel panel-wide">
+          <div class="panel-heading">
+            <div>
+              <p class="section-label">MARKETPLACE</p>
+              <h2>Leading sellers</h2>
+            </div>
+            <p class="panel-note">Ranked by product revenue</p>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Seller</th><th>Location</th><th>Orders</th><th>Items</th><th>Revenue</th><th>Rating</th></tr></thead>
+              <tbody id="seller-table"></tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <footer>
+      <span>RetailFlow ELT Project</span>
+      <span>CSV → PostgreSQL → Airflow → Analytics</span>
+    </footer>
+
+    <div id="error-message" class="error-message" hidden></div>
+    <script src="app.js"></script>
+  </body>
+</html>

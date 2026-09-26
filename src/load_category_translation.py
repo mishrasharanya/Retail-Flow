@@ -1,24 +1,12 @@
-import os
-
 from sqlalchemy import create_engine, text
 
+from config import get_database_url
 from validate_category_translation import csv_path, validate_csv
-
-
-user = os.getenv("POSTGRES_USER", "retailflow")
-password = os.getenv("POSTGRES_PASSWORD", "retailflow_password")
-host = os.getenv("POSTGRES_HOST", "localhost")
-port = os.getenv("POSTGRES_PORT", "5432")
-database = os.getenv("POSTGRES_DB", "retailflow")
-
-database_url = (
-    f"postgresql+psycopg2://{user}:{password}@{host}:{port}/{database}"
-)
 
 data = validate_csv()
 data["source_file"] = csv_path.name
 
-engine = create_engine(database_url)
+engine = create_engine(get_database_url())
 
 with engine.begin() as connection:
     connection.execute(text("TRUNCATE TABLE raw.product_category_translation"))
